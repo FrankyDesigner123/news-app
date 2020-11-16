@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as newsAction from '../redux/actions/newsAction';
 
@@ -23,7 +22,9 @@ const Card = (props) => {
 				<View style={styles.imageWrapper}>
 					<Image
 						source={{
-							uri: props.image,
+							uri: props.image
+								? props.image
+								: 'https://image.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg',
 						}}
 						style={styles.image}
 					/>
@@ -31,7 +32,7 @@ const Card = (props) => {
 
 				<View style={styles.titleWrapper}>
 					<Text style={styles.title}>
-						{props.title.length > 25
+						{props.title && props.title.length > 25
 							? props.title.slice(0, 25) + ' ...'
 							: props.title}
 					</Text>
@@ -52,7 +53,7 @@ const Card = (props) => {
 
 				<View style={styles.descriptionWrapper}>
 					<Text style={styles.description}>
-						{props.description.length > 130
+						{props.description && props.description.length > 130
 							? props.description.slice(0, 130) + ' ...'
 							: props.description}
 					</Text>
