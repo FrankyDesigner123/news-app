@@ -8,8 +8,8 @@ import AppNavigator from './src/navigation/AppNavigator';
 
 const loadFonts = () => {
 	return Font.loadAsync({
-		'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
-		'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
+		'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
+		'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
 	});
 };
 

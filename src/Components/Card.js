@@ -62,14 +62,14 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 	},
 	title: {
-		fontFamily: 'Poppins-SemiBold',
+		fontFamily: 'Roboto-Bold',
 		fontSize: 20,
 	},
 	descriptionWrapper: {
 		paddingHorizontal: 15,
 	},
 	description: {
-		fontFamily: 'Poppins-Regular',
+		fontFamily: 'Roboto-Light',
 		fontSize: 15,
 		marginTop: 10,
 	},
