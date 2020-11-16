@@ -35,7 +35,7 @@ export default function (state = initialState, action) {
 				// item does not exists in favorites, we need to add it
 
 				// we need to get the item we want to add to favorite
-				const article = state.articles.find(
+				const article = state.articles.articles.find(
 					(article) => article.url === action.payload //find the article we want to add to favorites
 				);
 

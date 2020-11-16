@@ -1,9 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
+
+import * as newsAction from '../redux/actions/newsAction';
 
 const Card = (props) => {
 	// console.log(props);
+
+	// init useDispatch
+	const dispatch = useDispatch();
+
 	return (
 		<TouchableOpacity onPress={() => props.navigation.navigate('NewsDetails')}>
 			<View style={styles.card}>
@@ -22,7 +29,19 @@ const Card = (props) => {
 							? props.title.slice(0, 25) + ' ...'
 							: props.title}
 					</Text>
-					<MaterialIcons name="favorite-border" color="#72bcd4" size={24} />
+					<MaterialIcons
+						name="favorite-border"
+						color="#72bcd4"
+						size={24}
+						// we need to pass a function that triggers when the icon is pressed
+						onPress={() => {
+							//in the body we want to dispatch the action -> need to important {useDispatch} from react-redux
+							//also need to import the action we need to trigger from newsAction
+
+							//when the icon is pressed we want to dispatch our action, we make use of dispatch and pass the newsAction
+							dispatch(newsAction.toggleFavorites(props.url)); //toggleFavorite takes a url
+						}}
+					/>
 				</View>
 
 				<View style={styles.descriptionWrapper}>
