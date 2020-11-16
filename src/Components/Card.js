@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import * as newsAction from '../redux/actions/newsAction';
 
@@ -10,6 +11,9 @@ const Card = (props) => {
 
 	// init useDispatch
 	const dispatch = useDispatch();
+	const isFav = useSelector((state) =>
+		state.news.favorites.some((article) => article.url === props.url)
+	);
 
 	return (
 		<TouchableOpacity onPress={() => props.navigation.navigate('NewsDetails')}>
@@ -30,7 +34,7 @@ const Card = (props) => {
 							: props.title}
 					</Text>
 					<MaterialIcons
-						name="favorite-border"
+						name={isFav ? 'favorite' : 'favorite-border'}
 						color="#72bcd4"
 						size={24}
 						// we need to pass a function that triggers when the icon is pressed
