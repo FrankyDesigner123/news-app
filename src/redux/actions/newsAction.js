@@ -1,5 +1,5 @@
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
-export const ADD_FAVORITES = 'ADD_FAVORITES';
+export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES';
 
 export const fetchArticles = () => {
 	return async (dispatch) => {
@@ -14,5 +14,16 @@ export const fetchArticles = () => {
 			type: FETCH_ARTICLES,
 			payload: resultData,
 		});
+	};
+};
+
+// we need to pass the ID of the news we want to add to favorites to this function
+// thats how we can see the item we want to add to favorite
+// in the data of article we don't have id, but the unique prop is url so we use url to identify the news we want to add to favorite
+export const toggleFavorites = (url) => {
+	//actions needs to return a js object with type and payload
+	return {
+		type: TOGGLE_FAVORITES,
+		payload: url,
 	};
 };
