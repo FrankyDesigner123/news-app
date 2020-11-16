@@ -11,8 +11,10 @@ const Card = (props) => {
 
 	// init useDispatch
 	const dispatch = useDispatch();
-	const isFav = useSelector((state) =>
-		state.news.favorites.some((article) => article.url === props.url)
+	const isFav = useSelector(
+		(state) => state.news.favorites.some((article) => article.url === props.url) //this gives us array of items that exist in favorites
+		// .some(boolean) (article)=> article.url ===props.url
+		// some returns true or false depending if the item exists in favorites
 	);
 
 	return (
