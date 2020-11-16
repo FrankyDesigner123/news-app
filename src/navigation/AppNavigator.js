@@ -25,6 +25,7 @@ const HeaderLeft = () => {
 			onPress={() => {
 				navigation.openDrawer();
 			}}
+			style={{ paddingLeft: 15 }}
 		/>
 	);
 };
