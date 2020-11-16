@@ -17,7 +17,17 @@ const Card = (props) => {
 	);
 
 	return (
-		<TouchableOpacity onPress={() => props.navigation.navigate('NewsDetails')}>
+		<TouchableOpacity
+			onPress={() => {
+				// param 1 = screenName, param 2 = object
+				// setup route name of the screen we want to navigate
+				// with this approach we can setup the params
+				props.navigation.navigate('NewsDetails', {
+					//we pass a unique item and we fetch the item from the state
+					articleUrl: props.url,
+				});
+			}}
+		>
 			<View style={styles.card}>
 				<View style={styles.imageWrapper}>
 					<Image
