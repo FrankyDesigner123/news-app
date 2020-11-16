@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
+
+import Header from './src/Components/Header';
+import Card from './src/Components/Card';
+
+const loadFonts = () => {
+	return Font.loadAsync({
+		'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+		'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
+	});
+};
+
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	const [fontLoaded, setFontLoaded] = useState(false);
+
+	if (!fontLoaded) {
+		return (
+			<AppLoading startAsync={loadFonts} onFinish={() => setFontLoaded(true)} />
+		);
+	}
+	return (
+		<View>
+			<Header />
+			<Card />
+		</View>
+	);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({});
