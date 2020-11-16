@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
-import NewsListScreen from './src/screens/NewsListScreen';
+import AppNavigator from './src/navigation/AppNavigator';
 
 const loadFonts = () => {
 	return Font.loadAsync({
@@ -21,7 +21,7 @@ export default function App() {
 			<AppLoading startAsync={loadFonts} onFinish={() => setFontLoaded(true)} />
 		);
 	}
-	return <NewsListScreen />;
+	return <AppNavigator />;
 }
 
 const styles = StyleSheet.create({});
