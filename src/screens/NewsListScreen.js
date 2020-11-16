@@ -3,12 +3,10 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import Card from '../Components/Card';
 
-const NewsListScreen = () => {
-	return (
-		<View>
-			<Card />
-		</View>
-	);
+const NewsListScreen = (props) => {
+	// console.log(props);
+
+	return <Card navigation={props.navigation} />;
 };
 
 const styles = StyleSheet.create({});

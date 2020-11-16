@@ -1,29 +1,32 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const Card = () => {
+const Card = (props) => {
+	// console.log(props);
 	return (
-		<View style={styles.card}>
-			<View style={styles.imageWrapper}>
-				<Image
-					source={{
-						uri:
-							'https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/ca_0629NID_Numbers_Green_online.jpg?itok=IB-AqqdD',
-					}}
-					style={styles.image}
-				/>
-			</View>
+		<TouchableOpacity onPress={() => props.navigation.navigate('NewsDetails')}>
+			<View style={styles.card}>
+				<View style={styles.imageWrapper}>
+					<Image
+						source={{
+							uri:
+								'https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/ca_0629NID_Numbers_Green_online.jpg?itok=IB-AqqdD',
+						}}
+						style={styles.image}
+					/>
+				</View>
 
-			<View style={styles.titleWrapper}>
-				<Text style={styles.title}>Dummy Title</Text>
-				<MaterialIcons name="favorite-border" color="#72bcd4" size={24} />
-			</View>
+				<View style={styles.titleWrapper}>
+					<Text style={styles.title}>Dummy Title</Text>
+					<MaterialIcons name="favorite-border" color="#72bcd4" size={24} />
+				</View>
 
-			<View style={styles.descriptionWrapper}>
-				<Text style={styles.description}>Dummy description</Text>
+				<View style={styles.descriptionWrapper}>
+					<Text style={styles.description}>Dummy description</Text>
+				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
