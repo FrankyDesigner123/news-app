@@ -12,7 +12,7 @@ export const fetchArticles = () => {
 
 		dispatch({
 			type: FETCH_ARTICLES,
-			payload: { id: 1, title: 'Sport news', description: 'random desc.' },
+			payload: resultData,
 		});
 	};
 };
